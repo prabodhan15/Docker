@@ -1,0 +1,12 @@
+#Running a docker
+    docker run img_name
+#Checking the containers
+    docker ps
+#Checking a file/version in docker file
+    docker run img_name:version cat /folder_name/file_name
+#sleep command in detached mode(with help of "-d")
+    docker run -d img_name sleep time(s)
+#Stopping a container
+    docker stop container_id
+#if want to run on foreground
+    docker attach container_id
