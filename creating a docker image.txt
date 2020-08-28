@@ -1,0 +1,27 @@
+    1.apt-get update
+    2.apt-get install -y python3
+    3.apt-get install python3-pip3
+    4.pip3 install flask
+    5.cat > /opt/firstapp.py
+{source code}
+    6.FLASK_APP=firstapp.py flask run --host=0.0.0.0
+--------------App up and running-----------
+# Dockerising the app
+
+FROM ubuntu
+
+RUN apt-get update
+RUN apt-get install -y python3 python3-pip3
+RUN pip3 install flask
+
+COPY firstapp.py /opt/firstapp.py
+
+ENTRYPOINT FLASK_APP=firstapp.py flask run --host=0.0.0.0
+#building docker image
+    docker build .
+#after successful build
+docker build . -t my-simple-webapp
+#Running a docker app
+docker run my-simple-webapp
+#Pushing to docker hub (after loggin in docker)
+docker push my-simple-webapp
